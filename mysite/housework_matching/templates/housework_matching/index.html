@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'housework_matching/style.css' %}">
+
+{% if object_list %}
+    <ul>
+        {% for housework in object_list %}
+            <li><a href="{% url 'housework_matching:detail' housework.id %}">{{ housework.housework_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No housework is available.</p>
+{% endif %}
